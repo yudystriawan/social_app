@@ -13,10 +13,10 @@ class _SplashPageState extends State<SplashPage> {
   @override
   void initState() {
     super.initState();
-    Future.delayed(
-      const Duration(seconds: 3),
-      () => AutoRouter.of(context).replace(const HomeRoute()),
-    );
+    // Future.delayed(
+    //   const Duration(seconds: 3),
+    //   () => AutoRouter.of(context).replace(const HomeRoute()),
+    // );
   }
 
   @override

@@ -5,8 +5,8 @@ import 'package:ddd_sample/presentation/pages/splash/splash_page.dart';
 @AdaptiveAutoRouter(
   replaceInRouteName: 'Page,Route',
   routes: [
-    AutoRoute(page: SplashPage, initial: true),
-    AutoRoute(page: HomePage),
+    AutoRoute(page: SplashPage,),
+    AutoRoute(page: HomePage, initial: true),
   ],
 )
 class $AppRouter {}

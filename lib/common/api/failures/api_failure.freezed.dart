@@ -59,7 +59,15 @@ mixin _$ApiFailure {
     TResult Function()? unauthenticatedFailure,
   }) =>
       throw _privateConstructorUsedError;
-
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? unexpectedFailure,
+    TResult Function(int? code, String? errMessage)? serverFailure,
+    TResult Function()? badNetworkFailure,
+    TResult Function()? unauthenticatedFailure,
+    required TResult orElse(),
+  }) =>
+      throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(_UnexpectedFailure value) unexpectedFailure,
@@ -75,6 +83,15 @@ mixin _$ApiFailure {
     TResult Function(_ServerFailure value)? serverFailure,
     TResult Function(_BadNetworkFailure value)? badNetworkFailure,
     TResult Function(_UnauthenticatedFailure value)? unauthenticatedFailure,
+  }) =>
+      throw _privateConstructorUsedError;
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_UnexpectedFailure value)? unexpectedFailure,
+    TResult Function(_ServerFailure value)? serverFailure,
+    TResult Function(_BadNetworkFailure value)? badNetworkFailure,
+    TResult Function(_UnauthenticatedFailure value)? unauthenticatedFailure,
+    required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
 }
@@ -157,6 +174,21 @@ class _$_UnexpectedFailure implements _UnexpectedFailure {
 
   @override
   @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? unexpectedFailure,
+    TResult Function(int? code, String? errMessage)? serverFailure,
+    TResult Function()? badNetworkFailure,
+    TResult Function()? unauthenticatedFailure,
+    required TResult orElse(),
+  }) {
+    if (unexpectedFailure != null) {
+      return unexpectedFailure();
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(_UnexpectedFailure value) unexpectedFailure,
     required TResult Function(_ServerFailure value) serverFailure,
@@ -176,6 +208,21 @@ class _$_UnexpectedFailure implements _UnexpectedFailure {
     TResult Function(_UnauthenticatedFailure value)? unauthenticatedFailure,
   }) {
     return unexpectedFailure?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_UnexpectedFailure value)? unexpectedFailure,
+    TResult Function(_ServerFailure value)? serverFailure,
+    TResult Function(_BadNetworkFailure value)? badNetworkFailure,
+    TResult Function(_UnauthenticatedFailure value)? unauthenticatedFailure,
+    required TResult orElse(),
+  }) {
+    if (unexpectedFailure != null) {
+      return unexpectedFailure(this);
+    }
+    return orElse();
   }
 }
 
@@ -279,6 +326,21 @@ class _$_ServerFailure implements _ServerFailure {
 
   @override
   @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? unexpectedFailure,
+    TResult Function(int? code, String? errMessage)? serverFailure,
+    TResult Function()? badNetworkFailure,
+    TResult Function()? unauthenticatedFailure,
+    required TResult orElse(),
+  }) {
+    if (serverFailure != null) {
+      return serverFailure(code, errMessage);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(_UnexpectedFailure value) unexpectedFailure,
     required TResult Function(_ServerFailure value) serverFailure,
@@ -298,6 +360,21 @@ class _$_ServerFailure implements _ServerFailure {
     TResult Function(_UnauthenticatedFailure value)? unauthenticatedFailure,
   }) {
     return serverFailure?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_UnexpectedFailure value)? unexpectedFailure,
+    TResult Function(_ServerFailure value)? serverFailure,
+    TResult Function(_BadNetworkFailure value)? badNetworkFailure,
+    TResult Function(_UnauthenticatedFailure value)? unauthenticatedFailure,
+    required TResult orElse(),
+  }) {
+    if (serverFailure != null) {
+      return serverFailure(this);
+    }
+    return orElse();
   }
 }
 
@@ -374,6 +451,21 @@ class _$_BadNetworkFailure implements _BadNetworkFailure {
 
   @override
   @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? unexpectedFailure,
+    TResult Function(int? code, String? errMessage)? serverFailure,
+    TResult Function()? badNetworkFailure,
+    TResult Function()? unauthenticatedFailure,
+    required TResult orElse(),
+  }) {
+    if (badNetworkFailure != null) {
+      return badNetworkFailure();
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(_UnexpectedFailure value) unexpectedFailure,
     required TResult Function(_ServerFailure value) serverFailure,
@@ -393,6 +485,21 @@ class _$_BadNetworkFailure implements _BadNetworkFailure {
     TResult Function(_UnauthenticatedFailure value)? unauthenticatedFailure,
   }) {
     return badNetworkFailure?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_UnexpectedFailure value)? unexpectedFailure,
+    TResult Function(_ServerFailure value)? serverFailure,
+    TResult Function(_BadNetworkFailure value)? badNetworkFailure,
+    TResult Function(_UnauthenticatedFailure value)? unauthenticatedFailure,
+    required TResult orElse(),
+  }) {
+    if (badNetworkFailure != null) {
+      return badNetworkFailure(this);
+    }
+    return orElse();
   }
 }
 
@@ -462,6 +569,21 @@ class _$_UnauthenticatedFailure implements _UnauthenticatedFailure {
 
   @override
   @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? unexpectedFailure,
+    TResult Function(int? code, String? errMessage)? serverFailure,
+    TResult Function()? badNetworkFailure,
+    TResult Function()? unauthenticatedFailure,
+    required TResult orElse(),
+  }) {
+    if (unauthenticatedFailure != null) {
+      return unauthenticatedFailure();
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(_UnexpectedFailure value) unexpectedFailure,
     required TResult Function(_ServerFailure value) serverFailure,
@@ -481,6 +603,21 @@ class _$_UnauthenticatedFailure implements _UnauthenticatedFailure {
     TResult Function(_UnauthenticatedFailure value)? unauthenticatedFailure,
   }) {
     return unauthenticatedFailure?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_UnexpectedFailure value)? unexpectedFailure,
+    TResult Function(_ServerFailure value)? serverFailure,
+    TResult Function(_BadNetworkFailure value)? badNetworkFailure,
+    TResult Function(_UnauthenticatedFailure value)? unauthenticatedFailure,
+    required TResult orElse(),
+  }) {
+    if (unauthenticatedFailure != null) {
+      return unauthenticatedFailure(this);
+    }
+    return orElse();
   }
 }
 

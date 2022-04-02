@@ -1,5 +1,9 @@
+import 'dart:developer';
+
 import 'package:auto_route/auto_route.dart';
+import 'package:ddd_sample/presentation/pages/splash/splash_page.dart';
 import 'package:ddd_sample/presentation/routes/app_router.gr.dart';
+import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 
@@ -14,6 +18,7 @@ class AppWidget extends StatefulWidget {
 
 class _AppWidgetState extends State<AppWidget> {
   late AppRouter _appRouter;
+  final _firebaseApp = Firebase.initializeApp();
 
   @override
   void initState() {
@@ -31,7 +36,22 @@ class _AppWidgetState extends State<AppWidget> {
         data: ThemeData(
           primaryColor: AppColor(context).mainPrimary,
         ),
-        child: child!,
+        child: FutureBuilder(
+          future:
+              Future.delayed(const Duration(seconds: 3), () => _firebaseApp),
+          builder: (context, snapshot) {
+            if (snapshot.hasError) {
+              log(snapshot.error.toString(), name: 'init firebase');
+              return const Text('Something went wrong');
+            }
+
+            if (snapshot.hasData) {
+              return child!;
+            }
+
+            return const SplashPage();
+          },
+        ),
       ),
     );
   }

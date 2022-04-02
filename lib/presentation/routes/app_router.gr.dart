@@ -33,15 +33,15 @@ class AppRouter extends _i3.RootStackRouter {
 
   @override
   List<_i3.RouteConfig> get routes => [
-        _i3.RouteConfig(SplashRoute.name, path: '/'),
-        _i3.RouteConfig(HomeRoute.name, path: '/home-page')
+        _i3.RouteConfig(SplashRoute.name, path: '/splash-page'),
+        _i3.RouteConfig(HomeRoute.name, path: '/')
       ];
 }
 
 /// generated route for
 /// [_i1.SplashPage]
 class SplashRoute extends _i3.PageRouteInfo<void> {
-  const SplashRoute() : super(SplashRoute.name, path: '/');
+  const SplashRoute() : super(SplashRoute.name, path: '/splash-page');
 
   static const String name = 'SplashRoute';
 }
@@ -49,7 +49,7 @@ class SplashRoute extends _i3.PageRouteInfo<void> {
 /// generated route for
 /// [_i2.HomePage]
 class HomeRoute extends _i3.PageRouteInfo<void> {
-  const HomeRoute() : super(HomeRoute.name, path: '/home-page');
+  const HomeRoute() : super(HomeRoute.name, path: '/');
 
   static const String name = 'HomeRoute';
 }
